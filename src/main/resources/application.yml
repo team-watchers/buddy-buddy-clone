@@ -1,14 +1,10 @@
+# Active environment 
 spring:
   profiles:
-    active: local
-  devtools:
-    livereload:
-      enabled: true
-    restart:
-      enabled: false
-  freemarker:
-    cache: false
-    template-loader-path: classpath:/template
-    suffix: .ftl
-  jwt:
-    secret: govlepel@$&
+    active: local # 기본 환경 선택
+
+---
+
+# Local
+spring:
+  profiles: local
