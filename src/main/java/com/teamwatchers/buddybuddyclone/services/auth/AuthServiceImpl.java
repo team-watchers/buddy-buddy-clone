@@ -1,5 +1,6 @@
 package com.teamwatchers.buddybuddyclone.services.auth;
 
+import com.teamwatchers.buddybuddyclone.controllers.request.AuthLoginRequest;
 import com.teamwatchers.buddybuddyclone.controllers.request.AuthSignUpRequest;
 import com.teamwatchers.buddybuddyclone.daos.UserDao;
 import com.teamwatchers.buddybuddyclone.models.User;
@@ -31,5 +32,21 @@ public class AuthServiceImpl implements AuthService {
         userDao.save(user);
 
         return true;
+    }
+
+    @Override
+    public boolean login(AuthLoginRequest request) {
+        User user = userDao.findFirstByUsernameEquals(request.getUsername());
+
+        if (user == null) {
+            return false;
+        }
+
+        boolean isSamePassword = new BCryptPasswordEncoder().matches(
+            request.getPassword(),
+            user.getPassword()
+        );
+
+        return isSamePassword;
     }
 }

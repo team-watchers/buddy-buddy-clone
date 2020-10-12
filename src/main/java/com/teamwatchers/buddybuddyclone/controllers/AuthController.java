@@ -1,5 +1,6 @@
 package com.teamwatchers.buddybuddyclone.controllers;
 
+import com.teamwatchers.buddybuddyclone.controllers.request.AuthLoginRequest;
 import com.teamwatchers.buddybuddyclone.controllers.request.AuthSignUpRequest;
 import com.teamwatchers.buddybuddyclone.services.auth.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +30,11 @@ public class AuthController {
 
         return isSignUp ? ResponseEntity.ok(true) : ResponseEntity.status(422).body(false);
     }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public ResponseEntity<?> login(@RequestBody AuthLoginRequest request, HttpServletResponse response) {
+        boolean isLogin = authService.login(request);
+        return ResponseEntity.ok(true); // 세션?? JWT?? OAUTH??
+    }
+
 }
