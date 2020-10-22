@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -29,4 +31,15 @@ public class User {
 
     @Getter @Setter
     private String statusMessage;
+
+    @OneToMany(mappedBy = "user")
+    @Getter
+    private List<Friend> friends = new ArrayList<>();
+
+    public void addFriend(User toBeFriend) {
+        Friend friend = new Friend();
+        friend.setUser(this);
+        friend.setFriend(toBeFriend);
+        friends.add(friend);
+    }
 }
