@@ -2,12 +2,11 @@ package com.teamwatchers.buddybuddyclone.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.teamwatchers.buddybuddyclone.controllers.request.AuthLoginRequest;
-import com.teamwatchers.buddybuddyclone.controllers.request.AuthSignUpRequest;
 import com.teamwatchers.buddybuddyclone.services.auth.AuthService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -20,10 +19,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-@WebMvcTest
+@SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AuthControllerLoginTest {
-
     private MockMvc mvc;
 
     @Autowired
