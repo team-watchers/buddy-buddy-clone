@@ -1,10 +1,9 @@
 package com.teamwatchers.buddybuddyclone.daos;
 
-import com.teamwatchers.buddybuddyclone.models.User;
+import com.teamwatchers.buddybuddyclone.models.Message;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserDao extends CrudRepository<User, Long> {
-    User findFirstByUsernameEquals(String Username);
+public interface MessageDao extends CrudRepository<Message, Long> {
 }
