@@ -1,12 +1,14 @@
 package com.teamwatchers.buddybuddyclone.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Builder
 @Entity
 @Table(name = "friends")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Friend {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

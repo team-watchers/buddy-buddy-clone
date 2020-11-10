@@ -32,6 +32,7 @@ public class User {
     @Getter @Setter
     private String statusMessage;
 
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     @Getter
     private List<Friend> friends = new ArrayList<>();
