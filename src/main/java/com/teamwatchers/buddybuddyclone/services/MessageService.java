@@ -5,4 +5,5 @@ import com.teamwatchers.buddybuddyclone.models.Message;
 
 public interface MessageService {
     Message send(Friend friend, String content);
+    Message getDetail(Long messageId);
 }

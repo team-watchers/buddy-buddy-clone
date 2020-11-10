@@ -34,4 +34,14 @@ public class MessageServiceImpl implements MessageService {
 
         return messageDao.save(message);
     }
+
+    @Override
+    public Message getDetail(Long messageId) {
+        Message message = messageDao.findById(messageId).orElseThrow(
+            // TODO:: NotFoundEntityException 구현
+            () -> new RuntimeException("그런 메세지는 없어요.")
+        );
+
+        return message;
+    }
 }
